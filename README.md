@@ -13,15 +13,11 @@ This should give you a comprehensive view of how to create meta boxes with field
 
 ### Simple Example
 ```php
-function setup_custom_meta_boxes() {
-    $builder = new MetaBoxBuilder();
-    $builder->setId('custom_meta_box')
-            ->setTitle('Advanced Custom Meta Box')
-            ->setLocation('page')
-            ->addField(new TextField('text_field', 'Text Field'));
+$builder = new MetaBoxBuilder();
+$builder->setId('custom_meta_box')
+        ->setTitle('Custom Meta Box')
+        ->setLocation('page', $post_id = null)
+        ->addField(new TextField('text_field', 'Text Field'));
 
-    $metaBox = $builder->build();
-}
-
-add_action('add_meta_boxes', 'setup_custom_meta_boxes');
+$builder->build();
 ```
