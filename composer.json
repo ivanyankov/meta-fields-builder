@@ -1,6 +1,6 @@
 {
-    "name": "iyankov/wp-metabox",
-    "description": "A robust, flexible, and easy-to-use PHP library for creating WordPress metabox sections and meta fields.",
+    "name": "ivanyankov/wp-metafields-builder",
+    "description": "A robust, flexible, and easy-to-use PHP library to quickly create, register, and reuse meta fields and meta boxes configurations, and keep them in your source code repository.",
     "type": "library",
     "require": {
         "php": ">=7.4"
@@ -13,7 +13,7 @@
     ],
     "autoload": {
         "psr-4": {
-            "Yankov\\WpMetabox\\": "src/"
+            "Yankov\\MetaFieldsBuilder\\": "src/"
         }
     },
     "minimum-stability": "stable"
