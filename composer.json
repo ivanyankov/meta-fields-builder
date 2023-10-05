@@ -1,5 +1,5 @@
 {
-    "name": "ivanyankov/wp-metafields-builder",
+    "name": "ivanyankov/meta-fields-builder",
     "description": "A robust, flexible, and easy-to-use PHP library to quickly create, register, and reuse meta fields and meta boxes configurations, and keep them in your source code repository.",
     "type": "library",
     "require": {
