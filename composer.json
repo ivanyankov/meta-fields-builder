@@ -1,0 +1,20 @@
+{
+    "name": "iyankov/wp-metabox",
+    "description": "A robust, flexible, and easy-to-use PHP library for creating WordPress metabox sections and meta fields.",
+    "type": "library",
+    "require": {
+        "php": ">=7.4"
+    },
+    "license": "GPL-2.0+",
+    "authors": [
+        {
+            "name": "Ivan Yankov"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Yankov\\WpMetabox\\": "src/"
+        }
+    },
+    "minimum-stability": "stable"
+}
