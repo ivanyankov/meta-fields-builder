@@ -1,6 +1,6 @@
 <?php
 
-namespace Yankov\App\MetaBox;
+namespace Yankov\MetaFieldsBuilder\MetaBox;
 
 class MetaBoxBuilder
 {
