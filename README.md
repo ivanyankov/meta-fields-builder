@@ -13,6 +13,9 @@ This should give you a comprehensive view of how to create meta boxes with field
 
 ### Simple Example
 ```php
+use Yankov\MetaFieldsBuilder\MetaBox\MetaBoxBuilder;
+use Yankov\MetaFieldsBuilder\Fields\TextField;
+
 $fields = [
     new TextField('text_field_name', 'Text Field')
 ];
