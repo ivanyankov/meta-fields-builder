@@ -17,7 +17,11 @@ $builder = new MetaBoxBuilder();
 $builder->setId('custom_meta_box')
         ->setTitle('Custom Meta Box')
         ->setLocation('page', $post_id = null)
-        ->addField(new TextField('text_field', 'Text Field'));
+        ->addField(new TextField('text_field_name', 'Text Field'));
 
 $builder->build();
+```
+Get the saved data by calling the below WordPress function.
+```php
+$field_value = get_post_meta($post_id, "text_field_name", true);
 ```

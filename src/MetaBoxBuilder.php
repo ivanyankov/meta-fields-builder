@@ -1,38 +1,38 @@
 <?php
 
-namespace Yankov\MetaFieldsBuilder;
+namespace MetaFieldsBuilder;
 
 class MetaBoxBuilder
 {
     /**
-     * @var int
+     * @var string
      */
-    private $id;
+    private string $id;
 
     /**
      * @var string
      */
-    private $title;
+    private string $title;
 
     /**
      *  @var Field[]
      */
-    private $fields = [];
+    private array $fields = [];
 
     /**
      * @var string
      */
-    private $location;
+    private string $location;
 
     /**
-     * @var int
+     * @var mixed
      */
-    private $page_id;
+    private mixed $page_id;
 
     /**
      * @param string $id
      */
-    public function setId($id)
+    public function setId(string $id) : self
     {
         $this->id = $id;
 
@@ -42,7 +42,7 @@ class MetaBoxBuilder
     /**
      * @param string $title
      */
-    public function setTitle($title)
+    public function setTitle(string $title) : self
     {
         $this->title = $title;
 
@@ -52,7 +52,7 @@ class MetaBoxBuilder
     /**
      * @param Field $field
      */
-    public function addField(Field $field)
+    public function addField(Field $field) : self
     {
         $this->fields[] = $field;
 
@@ -62,7 +62,7 @@ class MetaBoxBuilder
     /**
      * @param string $location
      */
-    public function setLocation($location, $page_id = null)
+    public function setLocation(string $location, string|null $page_id = null) : self
     {
         $this->location = $location;
         $this->page_id = $page_id;
@@ -73,7 +73,7 @@ class MetaBoxBuilder
     /**
      * @return MetaBox
      */
-    public function build()
+    public function build() : MetaBox
     {
         return new MetaBox($this->id, $this->title, $this->fields, $this->location, $this->page_id);
     }

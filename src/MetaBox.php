@@ -1,42 +1,17 @@
 <?php
 
-namespace Yankov\MetaFieldsBuilder;
+namespace MetaFieldsBuilder;
 
 class MetaBox
 {
-    /**
-     * @var int
-     */
-    private $id;
-
-    /**
-     * @var string
-     */
-    private $title;
-
-    /**
-     * @var Field[]
-     */
-    private $fields;
-
-    /**
-     * @var string
-     */
-    private $location;
-
-    /**
-     * @var int
-     */
-    private $page_id;
-
-    public function __construct($id, $title, $fields, $location = 'post', $page_id = null)
+    public function __construct(
+        public readonly string $id,
+        public readonly string $title,
+        public readonly array $fields,
+        public readonly string $location = 'post',
+        public readonly mixed $page_id = null
+    )
     {
-        $this->id = $id;
-        $this->title = $title;
-        $this->fields = $fields;
-        $this->location = $location;
-        $this->page_id = $page_id;
-
         // Register the meta box.
         add_action('add_meta_boxes', [$this, 'register']);
         // Save the meta box data.
@@ -49,7 +24,7 @@ class MetaBox
      * @param string $post_type
      * @return void
      */
-    public function register($post_type) : void
+    public function register(string $post_type) : void
     {
         $should_show = ($post_type === $this->location);
 
@@ -70,7 +45,7 @@ class MetaBox
      * @param WP_Post $post
      * @return void
      */
-    public function render($post) : void
+    public function render(\WP_Post $post) : void
     {
         // Add an nonce field so we can check for it later.
         wp_nonce_field('custom_meta_box', 'custom_meta_box_nonce');
@@ -85,9 +60,9 @@ class MetaBox
      * Save the meta box data.
      *
      * @param int $post_id
-     * @return void
+     * @return mixed
      */
-    public function save($post_id)
+    public function save(int $post_id)
     {
         /*
 		 * If this is an autosave, our form has not been submitted,

@@ -1,31 +1,21 @@
 <?php
 
-namespace Yankov\MetaFieldsBuilder;
+namespace MetaFieldsBuilder;
 
 class TextField implements Field
 {
-    /**
-     * @var string
-     */
-    private $name;
-
-    /**
-     *  @var string
-     */
-    private $label;
-
-    public function __construct($name, $label)
-    {
-        $this->name = $name;
-        $this->label = $label;
-    }
+    public function __construct(
+        public readonly string $name,
+        public readonly string $label
+    ) {}
 
     /**
      * Render the field.
      *
      * @param int $post_id
+     * @return void
      */
-    public function render($post_id) : void
+    public function render(int $post_id) : void
     {
         $field_value = get_post_meta($post_id, $this->name, true);
 
@@ -42,7 +32,7 @@ class TextField implements Field
      * @param int $post_id
      * @return void
      */
-    public function save($post_id) : void
+    public function save(int $post_id) : void
     {
         if (isset($_POST[$this->name])) {
             update_post_meta($post_id, $this->name, sanitize_text_field($_POST[$this->name]));

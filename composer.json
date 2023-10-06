@@ -3,7 +3,7 @@
     "description": "A robust, flexible, and easy-to-use PHP library to quickly create, register, and reuse meta fields and meta boxes configurations, and keep them in your source code repository.",
     "type": "library",
     "require": {
-        "php": ">=7.4"
+        "php": ">=8.0"
     },
     "license": "GPL-2.0-or-later",
     "authors": [
@@ -13,7 +13,7 @@
     ],
     "autoload": {
         "psr-4": {
-            "Yankov\\MetaFieldsBuilder\\": "src/"
+            "MetaFieldsBuilder\\": "src/"
         }
     },
     "minimum-stability": "stable"
