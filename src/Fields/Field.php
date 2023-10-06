@@ -1,6 +1,6 @@
 <?php
 
-namespace MetaFieldsBuilder;
+namespace Yankov\App\Fields;
 
 interface Field
 {

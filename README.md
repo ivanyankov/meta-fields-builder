@@ -13,13 +13,11 @@ This should give you a comprehensive view of how to create meta boxes with field
 
 ### Simple Example
 ```php
-$builder = new MetaBoxBuilder();
-$builder->setId('custom_meta_box')
-        ->setTitle('Custom Meta Box')
-        ->setLocation('page', $post_id = null)
-        ->addField(new TextField('text_field_name', 'Text Field'));
+$fields = [
+    new TextField('text_field_name', 'Text Field')
+];
 
-$builder->build();
+$metaBox = MetaBoxBuilder::make('custom_meta_box_id', 'Advanced Custom Meta Box', $fields, 'post');
 ```
 Get the saved data by calling the below WordPress function.
 ```php

@@ -1,6 +1,6 @@
 <?php
 
-namespace MetaFieldsBuilder;
+namespace Yankov\App\Fields;
 
 class TextField implements Field
 {
@@ -15,7 +15,7 @@ class TextField implements Field
      * @param int $post_id
      * @return void
      */
-    public function render(int $post_id) : void
+    public function render(int $post_id)
     {
         $field_value = get_post_meta($post_id, $this->name, true);
 
@@ -32,7 +32,7 @@ class TextField implements Field
      * @param int $post_id
      * @return void
      */
-    public function save(int $post_id) : void
+    public function save(int $post_id)
     {
         if (isset($_POST[$this->name])) {
             update_post_meta($post_id, $this->name, sanitize_text_field($_POST[$this->name]));

@@ -1,6 +1,6 @@
 <?php
 
-namespace MetaFieldsBuilder;
+namespace Yankov\App\MetaBox;
 
 class MetaBox
 {
@@ -24,7 +24,7 @@ class MetaBox
      * @param string $post_type
      * @return void
      */
-    public function register(string $post_type) : void
+    public function register(string $post_type)
     {
         $should_show = ($post_type === $this->location);
 
@@ -45,7 +45,7 @@ class MetaBox
      * @param WP_Post $post
      * @return void
      */
-    public function render(\WP_Post $post) : void
+    public function render(\WP_Post $post)
     {
         // Add an nonce field so we can check for it later.
         wp_nonce_field('custom_meta_box', 'custom_meta_box_nonce');

@@ -1,37 +1,15 @@
 <?php
 
-namespace MetaFieldsBuilder;
+namespace Yankov\App\MetaBox;
 
 class MetaBoxBuilder
 {
-    /**
-     * @var string
-     */
     private string $id;
-
-    /**
-     * @var string
-     */
     private string $title;
-
-    /**
-     *  @var Field[]
-     */
     private array $fields = [];
-
-    /**
-     * @var string
-     */
     private string $location;
-
-    /**
-     * @var mixed
-     */
     private mixed $page_id;
 
-    /**
-     * @param string $id
-     */
     public function setId(string $id) : self
     {
         $this->id = $id;
@@ -50,24 +28,43 @@ class MetaBoxBuilder
     }
 
     /**
-     * @param Field $field
+     * @param array $field
      */
-    public function addField(Field $field) : self
+    public function setFields(array $fields) : self
     {
-        $this->fields[] = $field;
+        $this->fields = $fields;
 
         return $this;
     }
 
     /**
      * @param string $location
+     * @param int|null $page_id
      */
-    public function setLocation(string $location, string|null $page_id = null) : self
+    public function setLocation(string $location, int|null $page_id = null) : self
     {
         $this->location = $location;
         $this->page_id = $page_id;
 
         return $this;
+    }
+
+    /**
+     * @param string $id
+     * @param string $title
+     * @param array $fields
+     * @param string $screen
+     * @param string|null $page_id
+     * @return MetaBox
+     */
+    public static function make(string $id, string $title, array $fields, string $screen = 'post', int|null $page_id = null): MetaBox {
+        $builder = new self();
+        $builder->setId($id)
+                ->setTitle($title)
+                ->setFields($fields)
+                ->setLocation($screen, $page_id);
+
+        return $builder->build();
     }
 
     /**
