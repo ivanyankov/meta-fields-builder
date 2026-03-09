@@ -5,3 +5,5 @@ node_modules
 .stversions
 .stfolder
 .phpunit.result.cache
+.DS_Store
+/src/.DS_Store
